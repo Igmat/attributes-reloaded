@@ -75,18 +75,22 @@
   </ItemGroup>
   <!-- Files & Classes -->
   <ItemGroup>
+    <Compile Include="Helpers.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="Patches\CharacterAttributeItemVMPatch.cs" />
-    <Compile Include="Patches\CharacterVMPatch.cs" />
-    <Compile Include="Patches\MobilePartyPatch.cs" />
-    <Compile Include="Patches\SandboxAgentApplyDamageModelPatch.cs" />
-    <Compile Include="Patches\DefaultPartySizeLimitModelPatch.cs" />
-    <Compile Include="Patches\DefaultPersuasionModelPatch.cs" />
-    <Compile Include="Patches\SandboxAgentStatCalculateModelPatch.cs" />
-    <Compile Include="Patches\DefaultCharacterDevelopmentModelPatch.cs" />
+    <Compile Include="Patches\Intelligence\CharacterVMPatch.cs" />
+    <Compile Include="Patches\Social\DefaultBattleRewardModelPatch.cs" />
+    <Compile Include="Patches\Endurance\CharacterObjectPatch.cs" />
+    <Compile Include="Patches\Social\GainKingdomInfluenceActionPatch.cs" />
+    <Compile Include="Patches\VigorAndControl\MobilePartyPatch.cs" />
+    <Compile Include="Patches\VigorAndControl\SandboxAgentApplyDamageModelPatch.cs" />
+    <Compile Include="Patches\Social\DefaultPartySizeLimitModelPatch.cs" />
+    <Compile Include="Patches\Social\DefaultPersuasionModelPatch.cs" />
+    <Compile Include="Patches\VigorAndControl\SandboxAgentStatCalculateModelPatch.cs" />
+    <Compile Include="Patches\Intelligence\DefaultCharacterDevelopmentModelPatch.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="CharacterAttributeBonuses.cs" />
-    <Compile Include="Patches\DefaultClanFinanceModelPatch.cs" />
+    <Compile Include="Patches\Intelligence\DefaultClanFinanceModelPatch.cs" />
     <Compile Include="SubModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Patches\CharacterObjectPatch.cs" />
@@ -95,6 +99,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Patches\Cunning\" />
   </ItemGroup>
   <!-- Post-Build -->
   <PropertyGroup>

@@ -1,4 +1,4 @@
-﻿using HarmonyLib;
+using HarmonyLib;
 using System;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDeveloper;
@@ -6,7 +6,7 @@ using TaleWorlds.Core;
 using TaleWorlds.Library;
 
 
-namespace AttributesReloaded
+namespace AttributesReloaded.Patches
 {
     [HarmonyPatch(typeof(CharacterAttributeItemVM), MethodType.Constructor)]
     [HarmonyPatch(new Type[] { typeof(Hero), typeof(CharacterAttributesEnum), typeof(CharacterVM), typeof(Action<CharacterAttributeItemVM>), typeof(Action<CharacterAttributeItemVM>) })]

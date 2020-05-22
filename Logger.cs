@@ -8,7 +8,7 @@ namespace AttributesReloaded
     {
         public static void Log(string message, CharacterObject characterObject = null)
         {
-            if ((characterObject == null || characterObject.IsPlayerCharacter) && Config.Instance.enable_messages)
+            if (characterObject != null && characterObject.IsPlayerCharacter && Config.Instance.enable_messages)
             {
                 InformationManager.DisplayMessage(new InformationMessage(message, Colors.Red));
             }

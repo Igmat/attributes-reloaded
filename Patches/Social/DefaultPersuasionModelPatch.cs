@@ -5,16 +5,16 @@ using HarmonyLib;
 using TaleWorlds.Core;
 using TaleWorlds.Library;
 
-namespace AttributesReloaded
+namespace AttributesReloaded.Patches.Social
 {
 	[HarmonyPatch(typeof(DefaultPersuasionModel))]
-	[HarmonyPatch("GetChances")]
 	class DefaultPersuasionModelPatch
-	{
-		public static void Postfix(PersuasionOptionArgs optionArgs, ref float successChance, ref float critSuccessChance, ref float critFailChance, ref float failChance, float difficultyMultiplier)
+    {
+        [HarmonyPostfix]
+        [HarmonyPatch("GetChances")]
+        public static void GetChances(PersuasionOptionArgs optionArgs, ref float successChance, ref float critSuccessChance, ref float critFailChance, ref float failChance, float difficultyMultiplier)
 		{
-			var bonuses = new CharacterAttributeBonuses(Hero.MainHero.CharacterObject);
-			float attrBonus = bonuses.PersuadeAddition;
+			var attrBonus = new CharacterAttributeBonuses(Hero.MainHero.CharacterObject).PersuadeAddition;
             Logger.Log("Bonus " + attrBonus + "% persuation chance from SOC");
 			successChance += attrBonus;
 			if (successChance > 1)

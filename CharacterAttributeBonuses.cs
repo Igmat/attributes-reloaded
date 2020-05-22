@@ -5,7 +5,7 @@ using TaleWorlds.Core;
 
 namespace AttributesReloaded
 {
-    class CharacterAttributeBonuses
+    public class CharacterAttributeBonuses
     {
         public CharacterAttributeBonuses(CharacterObject character)
         {
@@ -24,6 +24,8 @@ namespace AttributesReloaded
         public float MoveSpeedMultiplier => bonus(config.bonus_movespeed, endurance);
         public float PartySizeMultiplier => bonus(config.bonus_partysize, social);
         public float PersuadeAddition => bonus(config.bonus_persuade, social);
+        public float RenownMultiplier => bonus(config.bonus_renown, social);
+        public float InfluenceMultiplier => bonus(config.bonus_influence, social);
         public float XPMultiplier => bonus(config.bonus_xp, intelligence);
         public float IncomeMultiplier => bonus(config.bonus_income, intelligence);
         public float ExpensesMultiplier => -Math.Min(bonus(config.bonus_decreas, intelligence), config.max_bonus_decreas);
