@@ -21,9 +21,9 @@ namespace AttributesReloaded.Patches.Intelligence
         [HarmonyPatch("CalculateClanExpenses")]
         public static void CalculateClanExpenses(Clan clan, ref ExplainedNumber goldChange, bool applyWithdrawals = false) =>
             goldChange.AddFactor(
-                Math.Min(
+                Math.Max(
                     clan.GetPartyBonus(bonuses => bonuses.ExpensesMultiplier, null) - 1,
-                    Config.Instance.max_bonus_decreas),
+                    - Config.Instance.max_bonus_decreas),
                 new TextObject("Decreasing expenses for Leaders' INT"));
     }
 }
