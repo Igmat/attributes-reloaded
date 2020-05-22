@@ -25,6 +25,9 @@ namespace AttributesReloaded.Patches
                     text += bonuses.MeleeSpeedMultiplier > 0
                         ? "Increases melee atack speed by " + bonuses.MeleeSpeedMultiplier.ToString("P") + "\n"
                         : "";
+                    text += bonuses.PositiveMoraleMultiplier > 0
+                        ? "Increases morale gain by " + bonuses.PositiveMoraleMultiplier.ToString("P") + "\n"
+                        : "";
                     break;
                 case CharacterAttributesEnum.Control:
                     text += bonuses.RangeDamageMultiplier > 0
@@ -32,6 +35,9 @@ namespace AttributesReloaded.Patches
                         : "";
                     text += bonuses.RangeSpeedMultiplier > 0
                         ? "Increases range atack speed by " + bonuses.RangeSpeedMultiplier.ToString("P") + "\n"
+                        : "";
+                    text += bonuses.NegativeMoraleMultiplier < 0
+                        ? "Decrease morale loss by " + (-bonuses.NegativeMoraleMultiplier).ToString("P") + "\n"
                         : "";
                     break;
                 case CharacterAttributesEnum.Endurance:
@@ -54,6 +60,15 @@ namespace AttributesReloaded.Patches
                     text += bonuses.PersuadeAddition > 0
                         ? "Increases persuade chance by " + bonuses.PersuadeAddition.ToString("P") + "\n"
                         : "";
+                    text += bonuses.RenownMultiplier > 0
+                        ? "Increases renown gain by " + bonuses.RenownMultiplier.ToString("P") + "\n"
+                        : "";
+                    text += bonuses.InfluenceMultiplier > 0
+                        ? "Increases influnce gain by " + bonuses.InfluenceMultiplier.ToString("P") + "\n"
+                        : "";
+                    text += bonuses.RenownAddition > 0
+                        ? "Increases renown by " + bonuses.RenownAddition.ToString("F2") + " when you meet somebody at first\n"
+                        : "";
                     break;
                 case CharacterAttributesEnum.Intelligence:
                     text += bonuses.XPMultiplier > 0
@@ -63,7 +78,7 @@ namespace AttributesReloaded.Patches
                         ? "Increases clan income by " + bonuses.IncomeMultiplier.ToString("P") + "\n"
                         : "";
                     text += bonuses.ExpensesMultiplier < 0
-                        ? "Decrease clan spendings by " + (- bonuses.ExpensesMultiplier).ToString("P") + "\n"
+                        ? "Decrease clan spendings by " + (-bonuses.ExpensesMultiplier).ToString("P") + "\n"
                         : "";
                     break;
             }
