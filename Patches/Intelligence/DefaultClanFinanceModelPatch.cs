@@ -14,7 +14,7 @@ namespace AttributesReloaded.Patches.Intelligence
         [HarmonyPatch("CalculateClanIncome")]
         public static void CalculateClanIncome(Clan clan, ref ExplainedNumber goldChange, bool applyWithdrawals = false) =>
             goldChange.AddFactor(
-                clan.GetPartyBonus(bonuses => bonuses.IncomeMultiplier, null),
+                clan.GetPartyBonus(bonuses => bonuses.IncomeMultiplier, null) - 1,
                 new TextObject("Additional income for Leaders' INT"));
 
         [HarmonyPostfix]
@@ -22,7 +22,7 @@ namespace AttributesReloaded.Patches.Intelligence
         public static void CalculateClanExpenses(Clan clan, ref ExplainedNumber goldChange, bool applyWithdrawals = false) =>
             goldChange.AddFactor(
                 Math.Min(
-                    clan.GetPartyBonus(bonuses => bonuses.ExpensesMultiplier, null),
+                    clan.GetPartyBonus(bonuses => bonuses.ExpensesMultiplier, null) - 1,
                     Config.Instance.max_bonus_decreas),
                 new TextObject("Decreasing expenses for Leaders' INT"));
     }
