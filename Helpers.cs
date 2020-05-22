@@ -12,9 +12,10 @@ namespace AttributesReloaded
     public delegate void LogBonusDelegate(float bonus, string name);
     public static class Helpers
     {
-        public static float GetPartyBonus(this IEnumerable<CharacterObject> party, GetBonusDelegate getBonusDelegate, LogBonusDelegate logBonusDelegate) =>
+        private static float GetPartyBonus(this IEnumerable<CharacterObject> party, GetBonusDelegate getBonusDelegate, LogBonusDelegate logBonusDelegate) =>
             1 + party
-                .Where(troop => troop != null && troop.HeroObject != null)
+                .Where(troop => troop != null && troop.IsHero)
+                .Distinct()
                 .Select(troop => new
                 {
                     bonus = getBonusDelegate(new CharacterAttributeBonuses(troop)),
@@ -25,7 +26,7 @@ namespace AttributesReloaded
 
         public static float GetPartyBonus(this IEnumerable<CharacterObject> party, CharacterObject leader, GetBonusDelegate getBonusDelegate, LogBonusDelegate logBonusDelegate) =>
             (Config.Instance.applye_bonuses_from_companions
-                ? party
+                ? new CharacterObject[] { leader }.Concat(party)
                 : new CharacterObject[] { leader })
             .GetPartyBonus(getBonusDelegate, logBonusDelegate);
 
