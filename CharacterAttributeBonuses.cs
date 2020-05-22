@@ -25,6 +25,7 @@ namespace AttributesReloaded
         public float PartySizeMultiplier => bonus(config.bonus_partysize, social);
         public float PersuadeAddition => bonus(config.bonus_persuade, social);
         public float RenownMultiplier => bonus(config.bonus_renown, social);
+        public float RenownAddition => bonus(config.bonus_meet_renown, social);
         public float InfluenceMultiplier => bonus(config.bonus_influence, social);
         public float XPMultiplier => bonus(config.bonus_xp, intelligence);
         public float IncomeMultiplier => bonus(config.bonus_income, intelligence);

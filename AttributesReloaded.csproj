@@ -79,6 +79,8 @@
     <Compile Include="Logger.cs" />
     <Compile Include="Patches\CharacterAttributeItemVMPatch.cs" />
     <Compile Include="Patches\Intelligence\CharacterVMPatch.cs" />
+    <Compile Include="Patches\Social\ClanPatch.cs" />
+    <Compile Include="Patches\Social\ConversationManagerPatch.cs" />
     <Compile Include="Patches\Social\DefaultBattleRewardModelPatch.cs" />
     <Compile Include="Patches\Endurance\CharacterObjectPatch.cs" />
     <Compile Include="Patches\Social\GainKingdomInfluenceActionPatch.cs" />
