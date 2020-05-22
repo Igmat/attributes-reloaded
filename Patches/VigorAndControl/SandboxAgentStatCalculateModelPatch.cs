@@ -31,7 +31,8 @@ namespace AttributesReloaded.Patches.VigorAndControl
 			
 			var characterObject = CharacterObject.Find(agent.Character.StringId);
 			var characterBonuses = new CharacterAttributeBonuses(characterObject);
-            var isMelee = !agent.WieldedWeapon.IsAnyRanged(out WeaponComponentData weapon);
+            var weapon = agent.GetWieldedWeaponInfo(Agent.HandIndex.MainHand);
+            var isMelee = weapon != null && !weapon.IsRangedWeapon;
             float speedMultiplier = isMelee
 				? characterBonuses.MeleeSpeedMultiplier
                 : characterBonuses.RangeSpeedMultiplier;
