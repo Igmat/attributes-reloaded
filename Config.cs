@@ -59,7 +59,7 @@ namespace AttributesReloaded
         public float bonus_partysize { get; set; } = 0.025f;
 
         [SettingPropertyGroup("Social", order: 4)]
-        [SettingPropertyInteger("Bonus Renown on meet (doesn't work yet) *", minValue: 0, maxValue: 10, Order = 2, HintText = "How many renown points you get upon meeting new character for each Social point", RequireRestart = false)]
+        [SettingPropertyInteger("Bonus Renown on meet *", minValue: 0, maxValue: 10, Order = 2, HintText = "How many renown points you get upon meeting new character for each Social point", RequireRestart = false)]
         public int bonus_meet_renown { get; set; } = 1;
 
         [SettingPropertyGroup("Social", order: 4)]
