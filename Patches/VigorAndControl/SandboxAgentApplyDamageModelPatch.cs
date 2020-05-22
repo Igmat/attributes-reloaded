@@ -24,7 +24,7 @@ namespace AttributesReloaded.Patches.VigorAndControl
                 !collisionData.IsAlternativeAttack)
             {
                 var bonuses = new CharacterAttributeBonuses(atacker);
-                var isMelee = weapon != null && !weapon.IsRangedWeapon;
+                var isMelee = weapon != null && !weapon.IsRangedWeapon && !weapon.IsAmmo && !weapon.IsConsumable;
                 float damageMultiplier = isMelee
                     ? bonuses.MeleeDamageMultiplier
                     : bonuses.RangeDamageMultiplier;
